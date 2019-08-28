@@ -1,7 +1,7 @@
-/*Por: Mariel C. Reséndiz.
-Práctica #2
+/*Por: Mariel C. ResÃ©ndiz.
+PrÃ¡ctica #2
 Fecha: 15 de Agosto del 2019.
-Objetivo: Creación .
+Objetivo: CreaciÃ³n y manejo de listas simplemente ligadas.
 Compilador: GNU GCC.
 */
 
@@ -15,7 +15,7 @@ void menu();
 #define TAM sizeof(struct nodo_s)
 #define NIL NULL
 
-typedef struct datos{ //Estructura de la información del jugador
+typedef struct datos{ //Estructura de la informaciÃ³n del jugador
     short int num_j;
     char nom_j[MAXNOM];
 }datos;
@@ -128,14 +128,14 @@ void agrega_en(int pos, short int dato_j, char dato_n[]){
     strcpy(node->info.nom_j,dato_n);
     node->sig=NIL;
 
-    //Si la lista esta vacía.
+    //Si la lista esta vacÃ­a.
     if(i==NIL){
         i=node;
         return;
     }
-    // Al terminar inserta el nodo 0 con la información.
+    // Al terminar inserta el nodo 0 con la informaciÃ³n.
 
-    //Si no terminó la función, se mueve uno por uno hasta encontrar el final (un nodo vacío).
+    //Si no terminÃ³ la funciÃ³n, se mueve uno por uno hasta encontrar el final (un nodo vacÃ­o).
 
     while(act!=NIL && cont!=pos){
         cont++;
@@ -143,7 +143,7 @@ void agrega_en(int pos, short int dato_j, char dato_n[]){
         act=act->sig;
     }
 
-    //Al terminar inserta el nuevo nodo con la información al inicio.
+    //Al terminar inserta el nuevo nodo con la informaciÃ³n al inicio.
 
     if(cont==0){
         i=node;
@@ -151,14 +151,14 @@ void agrega_en(int pos, short int dato_j, char dato_n[]){
         return;
     }
 
-    //Al terminar inserta el nuevo nodo con la información en el final.
+    //Al terminar inserta el nuevo nodo con la informaciÃ³n en el final.
 
     else if(act==NIL){
         prev->sig=node;
         return;
     }
 
-    //Al terminar inserta el nuevo nodo con la información en el medio.
+    //Al terminar inserta el nuevo nodo con la informaciÃ³n en el medio.
 
     else{
         prev->sig=node;
@@ -189,11 +189,11 @@ void borra_dato(short int dato_j, char dato_n[]){
 
     else if(ant==NIL){
        if(act->sig==NIL){
-        //Sólo hay un objeto en la lista.
+        //SÃ³lo hay un objeto en la lista.
         i=NIL;
        }
        else{
-        //Hay más objetos aparte de este.
+        //Hay mÃ¡s objetos aparte de este.
         i=act->sig;
        }
        free(act);
@@ -201,7 +201,7 @@ void borra_dato(short int dato_j, char dato_n[]){
     }
 
     else if(act->sig==NIL){
-        //Es el último dato.
+        //Es el Ãºltimo dato.
         ant->sig=NIL;
         free(act);
         return;
